@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #013e37;
+  --color-secondary: #ffefb3;
+  --color-background-custom: #f9f9f7;
+  --color-surface-custom: #ffffff;
+  --color-text-dark: #013e37;
+  --color-text-light: #ffffff;
+  --color-success-custom: #1b8f5c;
+  --color-warning-custom: #f4b400;
+  --color-danger-custom: #d93025;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-background-custom);
+  color: var(--color-text-dark);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Custom styling for floating and premium glassmorphism effect */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(1, 62, 55, 0.08);
+}
+
+.button-glow:hover {
+  box-shadow: 0 0 15px rgba(255, 239, 179, 0.6);
+}
