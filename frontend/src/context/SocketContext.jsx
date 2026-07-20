@@ -14,7 +14,8 @@ export const SocketProvider = ({ children }) => {
   useEffect(() => {
     // Establish connection to backend port
     const socketInstance = io(import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000', {
-      withCredentials: true
+      withCredentials: true,
+      transports: ['websocket']
     });
 
     socketInstance.on('connect', () => {
