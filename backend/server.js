@@ -14,10 +14,15 @@ const server = http.createServer(app);
 // Connect Database
 connectDB();
 
+// Normalize CORS origin to strip trailing slash if present
+const corsOrigin = process.env.CORS_ORIGIN
+  ? process.env.CORS_ORIGIN.replace(/\/$/, '')
+  : 'http://localhost:5173';
+
 // Middleware
 app.use(helmet());
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
+  origin: corsOrigin,
   credentials: true
 }));
 app.use(express.json());
@@ -38,7 +43,7 @@ app.get('/api/health', (req, res) => {
 // Setup socket.io
 const io = socketIo(server, {
   cors: {
-    origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
+    origin: corsOrigin,
     methods: ['GET', 'POST'],
     credentials: true
   }
